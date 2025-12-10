@@ -50,6 +50,16 @@ return {
 			},
 		})
 
+		local source_mapping = {
+			buffer = "(Buffer)",
+			nvim_lsp = "(LSP)",
+			nvim_lua = "(Lua)",
+			--cmp_tabnine = "(TN)",
+			path = "(Path)",
+			luasnip = "(SN)",
+		}
+
+
 		require("cmp_nvim_lsp")
 		require("cmp_path")
 		require("cmp_buffer")
@@ -158,6 +168,37 @@ return {
 					cmp.config.compare.sort_text,
 					--cmp.config.compare.length,
 				},
+			},
+			formatting = {
+				fields = { "kind", "abbr", "menu" },
+				-- format = kind.cmp_format {
+				--  with_text = false,
+				--  maxwidth = 80,
+				-- },
+				format = function(entry, vim_item)
+					vim_item.kind = lspkind.symbolic(vim_item.kind, { mode = "symbol" })
+					vim_item.menu = source_mapping[entry.source.name]
+					if entry.source.name == "cmp_tabnine" then
+						vim_item.kind = ""
+						-- show  score
+						-- local detail = (entry.completion_item.data or {}).detail
+						-- if detail and detail:find('.*%%.*') then
+						--  vim_item.kind = vim_item.kind .. ' ' .. detail
+						-- end
+
+						if (entry.completion_item.data or {}).multiline then
+							vim_item.kind = vim_item.kind .. " " .. "[ML]"
+						end
+					end
+
+					if entry.source.name == "calc" then
+						vim_item.kind = " 󰃬"
+					end
+
+					local maxwidth = 40
+					vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
+					return vim_item
+				end,
 			},
 		}
 		cmp.setup(opt)
