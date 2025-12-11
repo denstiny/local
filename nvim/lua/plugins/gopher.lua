@@ -1,3 +1,5 @@
+-- NOTE: this plugin is already lazy-loaded and adds only about 1ms
+-- of load time to your config
 return {
 	"olexsmir/gopher.nvim",
 	ft = "go",
@@ -6,5 +8,7 @@ return {
 	build = function()
 		vim.cmd.GoInstallDeps()
 	end,
+	---@module "gopher"
+	---@type gopher.Config
 	opts = {},
 }
