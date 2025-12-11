@@ -66,7 +66,6 @@ return {
 	window_background_opacity = 1,
 	window_close_confirmation = "NeverPrompt",
 	font = wezterm.font_with_fallback({
-		"FiraCode Nerd Font Mono",
 		"Maple Mono",
 		"青鸟华光简隶变",
 		"DengXian",
