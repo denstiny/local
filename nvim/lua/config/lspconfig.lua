@@ -93,6 +93,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			client.server_capabilities.hoverProvider = false
 		end
 
+		if client.name == 'gopls' and not client.server_capabilities.semanticTokensProvider then
+			local semantic = client.config.capabilities.textDocument.semanticTokens
+			client.server_capabilities.semanticTokensProvider = {
+				full = true,
+				legend = { tokenModifiers = semantic.tokenModifiers, tokenTypes = semantic.tokenTypes },
+				range = true,
+			}
+		end
 		-- Uncomment code below to enable inlay hint from language server, some LSP server supports inlay hint,
 		-- but disable this feature by default, so you may need to enable inlay hint in the LSP server config.
 		-- vim.lsp.inlay_hint.enable(true, {buffer=bufnr})
