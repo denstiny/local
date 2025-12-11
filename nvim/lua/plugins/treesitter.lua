@@ -12,53 +12,5 @@ return {
 		},
 	},
 	build = ':TSUpdate',
-	config = function()
-		--- { treesitter configs
-		local treesitter_config = require("nvim-treesitter.config")
-		-- use ssh
-		require("nvim-treesitter.install").prefer_git = true
-		treesitter_config.setup({
-			install_dir = "~/.local/state/nvim/treesitter",
-			ensure_installed = {
-				"rust",
-				"norg",
-				--"norg_meta",
-				--"norg_table",
-				--"proto",
-				"lua",
-				"vim",
-				"c",
-				"cpp",
-				"go",
-				--"org",
-				"python",
-				"java",
-				"html",
-				"css",
-				"javascript",
-				"markdown_inline",
-				"markdown",
-				"bash",
-				"comment",
-				"rust",
-			},
-			auto_install = true,
-			rainbow = {
-				enable = true,
-			},
-			highlight = {
-				enable = true,
-				disable = function(lang, buf)
-					--local max_filesize = 1000 * 1024 -- 100 KB
-					--local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-					--if ok and stats and stats.size > max_filesize then
-					--	return true
-					--end
-				end,
-				additional_vim_regex_highlighting = false,
-			},
-		})
-		--}
-	end,
 	lazy = false,
 }
