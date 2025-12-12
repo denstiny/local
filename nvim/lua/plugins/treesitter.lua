@@ -1,16 +1,14 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	branch = "main",
+	event = { "BufReadPost", "BufNewFile" },
+	cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+	build = ":TSUpdate",
 	opts = {
-		ensure_installed = {
-			"vim",
-			"lua",
-			"vimdoc",
-			"html",
-			"css",
-			"go"
+		ensure_installed = { "lua", "luadoc", "printf", "vim", "vimdoc" },
+		highlight = {
+			enable = true,
+			use_languagetree = true,
 		},
+		indent = { enable = true },
 	},
-	build = ':TSUpdate',
-	lazy = false,
 }

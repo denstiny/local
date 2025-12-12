@@ -80,8 +80,8 @@ return {
 			"norg",
 		}
 
-		vim.g.indent_blankline_show_end_of_line = false             -- 占用隐藏符号
+		vim.g.indent_blankline_show_end_of_line = false -- 占用隐藏符号
 		vim.g.indent_blankline_show_trailing_blankline_indent = false -- 删除多余的缩进线
 		vim.g.indent_blankline_max_indent_increase = 1
-	end
+	end,
 }

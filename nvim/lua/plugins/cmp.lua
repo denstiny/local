@@ -48,15 +48,14 @@ local config = function()
 		luasnip = "(SN)",
 	}
 
-
 	require("cmp_nvim_lsp")
 	require("cmp_path")
 	require("cmp_buffer")
 	local snip = require("luasnip")
-	local cmp = require "cmp"
+	local cmp = require("cmp")
 
 	local opt = {
-		completion = { completeopt = 'menu,menuone,noinsert' },
+		completion = { completeopt = "menu,menuone,noinsert" },
 		snippet = {
 			-- REQUIRED - you must specify a snippet engine
 			expand = function(args)
@@ -134,14 +133,14 @@ local config = function()
 			{ name = "nvim_lsp", priority = 8 },
 			{ name = "lazydev" },
 			-- { name = "neorg", priority = 10 },
-			{ name = "luasnip",  priority = 8, options = { use_show_condition = false } },
+			{ name = "luasnip", priority = 8, options = { use_show_condition = false } },
 			{ name = "nvim_lua" },
-			{ name = "buffer",   priority = 7 },
-			{ name = "path",     priority = 7 },
-			{ name = "calc",     priority = 6 },
+			{ name = "buffer", priority = 7 },
+			{ name = "path", priority = 7 },
+			{ name = "calc", priority = 6 },
 			--{ name = "cmp_tabnine", priority = 6 },
 			--{ name = "digraphs", priority = 5 },
-			{ name = "spell",    priority = 5 },
+			{ name = "spell", priority = 5 },
 		},
 		preselect = cmp.PreselectMode.None,
 		sorting = {
@@ -199,7 +198,7 @@ return {
 		{ "hrsh7th/cmp-nvim-lua" },
 		{ "hrsh7th/cmp-cmdline" },
 		{ "onsails/lspkind-nvim" },
-		{ "hrsh7th/cmp-buffer",                option = { keyword_pattern = [[\k\+]] } },
+		{ "hrsh7th/cmp-buffer", option = { keyword_pattern = [[\k\+]] } },
 		{ "hrsh7th/cmp-path" },
 		{ "saadparwaiz1/cmp_luasnip" },
 		{ "hrsh7th/cmp-calc" },

@@ -31,18 +31,18 @@ return {
 			threshold = vim.log.levels.OFF,
 		},
 		on_attach = function(bufnr)
-			local api = require "nvim-tree.api"
+			local api = require("nvim-tree.api")
 			local function opts(desc)
 				return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 			end
 			api.config.mappings.default_on_attach(bufnr)
-			vim.keymap.set("n", "u", api.tree.change_root_to_parent, opts "Up")
-			vim.keymap.set("n", "?", api.tree.toggle_help, opts "Help")
-			vim.keymap.set("n", "<C-v>", api.node.open.vertical, opts "new vertical split")
-			vim.keymap.set("n", "<C-s>", api.node.open.horizontal, opts "new vertical split")
-			vim.keymap.set('n', 'd', api.fs.trash, opts('trash'))
-			vim.keymap.set('n', 'D', api.fs.trash, opts('Trash'))
+			vim.keymap.set("n", "u", api.tree.change_root_to_parent, opts("Up"))
+			vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
+			vim.keymap.set("n", "<C-v>", api.node.open.vertical, opts("new vertical split"))
+			vim.keymap.set("n", "<C-s>", api.node.open.horizontal, opts("new vertical split"))
+			vim.keymap.set("n", "d", api.fs.trash, opts("trash"))
+			vim.keymap.set("n", "D", api.fs.trash, opts("Trash"))
 		end,
 	},
-	cmd = { "NvimTreeToggle", "NvimTreeFocus" }
+	cmd = { "NvimTreeToggle", "NvimTreeFocus" },
 }
