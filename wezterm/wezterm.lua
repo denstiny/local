@@ -67,6 +67,7 @@ return {
 	window_close_confirmation = "NeverPrompt",
 	font = wezterm.font_with_fallback({
 		"Maple Mono",
+		"Fire Code Nerd Font",
 		"青鸟华光简隶变",
 		"DengXian",
 	}),

@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git env)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -133,6 +133,7 @@ fi
 
 # Go 安装路径 (官方 pkg 安装默认为 /usr/local/go/bin)
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/.cargo/bin
 
 # 你的 Go 工作区 (默认即为 $HOME/go)
 export GOPATH=$HOME/Workspace/go
@@ -256,3 +257,30 @@ function fzfnv() {
 
 # 可选：添加简写别名（更易用）
 alias fnv="fzfnv"
+
+# translate-shell 双向翻译函数（关闭自动更正提示）
+function trans-auto() {
+    # 检测输入文本的语言（提取语言代码，如 zh/en）
+    local src_lang=$(trans -identify -b -no-auto "$1" | cut -d':' -f1 | cut -d',' -f1 | tr '[:upper:]' '[:lower:]')
+    
+    # 根据源语言切换目标语言，添加 -no-auto -quiet 关闭冗余提示
+    if [[ $src_lang == *"zh"* ]]; then
+        # 中文 → 英文（关闭自动更正+精简输出）
+        trans -b -no-auto -quiet -e google zh:en "$1"
+    elif [[ $src_lang == *"en"* ]]; then
+        # 英文 → 中文
+        trans -b -no-auto -quiet -e google en:zh "$1"
+    else
+        # 其他语言 → 中文
+        trans -b -no-auto -quiet -e google auto:zh "$1"
+    fi
+}
+
+alias cargo_test="cargo pretty-test --color=always"
+export RUST_BACKTRACE=1
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/mac/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+alias box=devbox

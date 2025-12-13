@@ -30,8 +30,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set(mode, l, r, opts)
 		end
 
+		map("n", "gr", function()
+			vim.cmd("Lspsaga finder def+tyd+ref+imp")
+		end, { desc = "go to references" })
 		map("n", "gd", function()
-			vim.cmd("Lspsaga finder tyd+ref+imp+def")
+			require("snacks").picker.lsp_definitions()
 		end, { desc = "go to definition" })
 		map("n", "K", function()
 			vim.cmd("Lspsaga hover_doc")
@@ -39,7 +42,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("n", "re", function()
 			vim.cmd("Lspsaga rename")
 		end, { desc = "varialbe rename" })
-		map("n", "<a-<cr>", vim.lsp.buf.code_action, { desc = "LSP code action" })
+		map("n", "<leader>a", vim.lsp.buf.code_action, { desc = "LSP code action" })
+		map("n", "gn", function()
+			vim.cmd("Lspsaga diagnostic_jump_next")
+		end, { desc = "diagnostic_jump_next" })
+		map("n", "gp", function()
+			vim.cmd("Lspsaga diagnostic_jump_prev")
+		end, { desc = "diagnostic_jump_prev" })
+		map("n", "gl", function()
+			vim.cmd("Lspsaga show_line_diagnostics")
+		end, { desc = "diagnostic_jump_prev" })
+		map("n", "mr", function()
+			vim.cmd("Lspsaga rename")
+		end, { desc = "rename" })
 		-- Set some key bindings conditional on server capabilities
 		-- Disable ruff hover feature in favor of Pyright
 		if client.name == "ruff" then
@@ -90,8 +105,7 @@ local enabled_lsp_servers = {
 	pyright = "delance-langserver",
 	ruff = "ruff",
 	lua_ls = "lua-language-server",
-	-- ltex = "ltex-ls",
-	-- clangd = "clangd",
+	clangd = "clangd",
 	vimls = "vim-language-server",
 	bashls = "bash-language-server",
 	yamlls = "yaml-language-server",

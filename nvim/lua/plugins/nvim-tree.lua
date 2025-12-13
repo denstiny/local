@@ -4,7 +4,6 @@ return {
 	dependencies = {
 		{ "nvim-tree/nvim-web-devicons", opts = {} },
 	},
-	cmd = { "NvimTreeToggle", "NvimTreeFocus" },
 	config = function()
 		require("nvim-tree").setup({
 			root_dirs = { "build", ".git", ".tasks.ini" },
@@ -22,7 +21,7 @@ return {
 			},
 			view = {
 				width = 30,
-				side = "right",
+				side = "left",
 			},
 			renderer = {
 				group_empty = true,
@@ -31,7 +30,8 @@ return {
 				},
 			},
 			filters = {
-				dotfiles = true,
+				dotfiles = false,
+				git_ignored = true,
 			},
 			notify = {
 				threshold = vim.log.levels.OFF,

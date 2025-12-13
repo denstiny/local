@@ -13,7 +13,9 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 brew install autojump
 brew install zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions 
+git clone https://github.com/johnhamelink/env-zsh.git ~/.oh-my-zsh/plugins/env
 ln -s $CURRENT_DIR/.zshrc ~/.zshrc
+
 source ~/.zshrc 
 
 #[config]
