@@ -18,10 +18,10 @@ return {
 			},
 			lightbulb = {
 				enable = true,
-				sign = true,
+				sign = false,
 				debounce = 10,
 				sign_priority = 40,
-				virtual_text = false,
+				virtual_text = true,
 				enable_in_insert = true,
 				ignore = {
 					clients = {},
