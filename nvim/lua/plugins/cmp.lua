@@ -141,6 +141,7 @@ local config = function()
 			--{ name = "cmp_tabnine", priority = 6 },
 			--{ name = "digraphs", priority = 5 },
 			{ name = "spell", priority = 5 },
+			{ name = "nvim_lsp_signature_help" },
 		},
 		preselect = cmp.PreselectMode.None,
 		sorting = {
@@ -205,6 +206,7 @@ return {
 		--{ "dmitmel/cmp-digraphs" },
 		{ "f3fora/cmp-spell" },
 		{ "hrsh7th/cmp-nvim-lsp" },
+		{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 		{ "lukas-reineke/cmp-under-comparator" },
 	},
 	config = function()
