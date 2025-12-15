@@ -2,6 +2,7 @@ local o = vim.o
 o.showmode = false
 o.expandtab = true
 o.smartindent = true
+o.autoindent = true
 o.tabstop = 2
 o.softtabstop = 2
 o.ignorecase = true

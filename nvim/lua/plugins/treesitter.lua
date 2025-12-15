@@ -15,7 +15,7 @@ return {
 			pattern = opts.install,
 			callback = function(args)
 				pcall(function()
-					vim.treesitter.start()
+					vim.treesitter.start(args.buf)
 					vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 					vim.wo.foldmethod = "expr"
 					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
