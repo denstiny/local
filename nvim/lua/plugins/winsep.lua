@@ -12,6 +12,6 @@ return {
 			},
 		})
 
-		vim.cmd([[ hi ColorfulWinSep guifg=#8A9A7B ]])
+		vim.cmd([[ hi ColorfulWinSep guifg=#a6d189 ]])
 	end,
 }

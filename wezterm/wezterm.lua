@@ -19,9 +19,9 @@ return {
 		top = 25,
 		bottom = 0,
 	},
-	colors = theme.colors,
-	force_reverse_video_cursor = theme.force_reverse_video_cursor,
-	--color_scheme = "Kanagawa (Gogh)",
+	--colors = theme.colors,
+	--force_reverse_video_cursor = theme.force_reverse_video_cursor,
+	color_scheme = "Catppuccin Mocha",
 	-- color_scheme_dirs = "~/.config/wezterm/themes/",
 	-- colors = {
 	-- 	background = "#FAF4ED",
@@ -106,6 +106,6 @@ return {
 	keys = require("key-bind").keyBind(),
 	adjust_window_size_when_changing_font_size = false,
 	use_ime = true,
-	window_background_opacity = 0.7,
-	text_background_opacity = 0.5,
+	window_background_opacity = 1,
+	text_background_opacity = 1,
 }

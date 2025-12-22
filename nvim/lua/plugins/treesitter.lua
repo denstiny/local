@@ -6,7 +6,11 @@ return {
 	config = function()
 		local opts = {
 			indent = { enable = true },
-			highlight = { enable = true, use_languagetree = true },
+			highlight = {
+				enable = true,
+				use_languagetree = true,
+				additional_vim_regex_highlighting = false,
+			},
 			folds = { enable = true },
 			install = { "lua", "luadoc", "vim", "vimdoc", "go", "python", "rust" },
 		}
